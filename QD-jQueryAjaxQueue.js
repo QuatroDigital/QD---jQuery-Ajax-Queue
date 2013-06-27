@@ -1,9 +1,4 @@
-/**
- * Quatro Digital - jQuery Ajax Queue
- * @author Carlos Vinicius [ QUATRO DIGITAL ]
- * @version 1.0
- * @license MIT <http://pt.wikipedia.org/wiki/Licen%C3%A7a_MIT>
-*/
+/* Quatro Digital - jQuery Ajax Queue // 1.0 // Carlos Vinicius [ QUATRO DIGITAL ] // MIT <http://pt.wikipedia.org/wiki/Licen%C3%A7a_MIT> */
 (function($){
 	if(typeof $.qdAjax === "function") return;
 
