@@ -4,11 +4,11 @@
 
 	// Aramazenamento da fila
 	$.qdAjaxQueue={};
-	
+
 	// Plugin
 	$.qdAjax = function(opts){
 		var defaults,options,urlId,queue,ajaxOptions;
-		
+
 		defaults={
 			success : function(){},
 			error : function(){},
@@ -16,7 +16,7 @@
 			clearQueueDelay : 0
 		};
 		options = $.extend({},defaults, opts);
-	
+
 		// Adicionando a requisição na fila
 		urlId = escape(encodeURIComponent(options.url));
 		queue = {
@@ -34,10 +34,10 @@
 		$.qdAjaxQueue[urlId] = $.qdAjaxQueue[urlId] || {};
 		$.qdAjaxQueue[urlId]["opts"] = $.qdAjaxQueue[urlId]["opts"] || [];
 		$.qdAjaxQueue[urlId]["opts"].push(queue);
-		
+
 		// Iniciando a chave correspondente aos parametros recebidos na requisção para uma URL em especifico
 		$.qdAjaxQueue[urlId]["parameters"] = $.qdAjaxQueue[urlId]["parameters"] || {"success" : {}, "error" : {}, "complete" : {}};
-		
+
 		// Informando que nenhum callback tem informação armazenada até o momento
 		$.qdAjaxQueue[urlId]["callbackFns"] = $.qdAjaxQueue[urlId]["callbackFns"] || {};
 		$.qdAjaxQueue[urlId]["callbackFns"]["successPopulated"] = typeof $.qdAjaxQueue[urlId]["callbackFns"]["successPopulated"] === "boolean" ? $.qdAjaxQueue[urlId]["callbackFns"]["successPopulated"] : false;
@@ -63,7 +63,7 @@
 			error:function(jqXHR, textStatus, errorThrown){
 				$.qdAjaxQueue[urlId]["parameters"].error = {errorThrown : errorThrown, textStatus : textStatus, jqXHR : jqXHR};
 				$.qdAjaxQueue[urlId]["callbackFns"]["errorPopulated"] = true;
-				
+
 				for(var i in $.qdAjaxQueue[urlId]["opts"]){
 					if(typeof $.qdAjaxQueue[urlId]["opts"][i] !== "object")
 						continue;
@@ -83,7 +83,7 @@
 					$.qdAjaxQueue[urlId]["opts"][i].complete.call(this, jqXHR, textStatus);
 					$.qdAjaxQueue[urlId]["opts"][i].complete=function(){};
 				}
-				
+
 				// Removendo os dados jqXHR
 				setTimeout(function(){
 					$.qdAjaxQueue[urlId]["jqXHR"] = undefined;
@@ -93,7 +93,7 @@
 				}, options.clearQueueDelay);
 			}
 		});
-		
+
 		// Fazendo a chamada Ajax
 		if(typeof $.qdAjaxQueue[urlId]["jqXHR"] === "undefined")
 			$.qdAjaxQueue[urlId]["jqXHR"] = $.ajax(ajaxOptions);
