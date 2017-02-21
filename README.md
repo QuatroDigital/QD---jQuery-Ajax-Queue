@@ -10,13 +10,12 @@
 
 ----------
 
-###**Exemplo**
+###**Exemplo, request comum em $.ajax**
 
 
 ![enter image description here](https://cdn.rawgit.com/QuatroDigital/Quatro-Digital---jQuery-Ajax-Queue/8b9ff8f0/img/exemplo-ajax-1.png)
 
-![enter image description here](https://cdn.rawgit.com/QuatroDigital/Quatro-Digital---jQuery-Ajax-Queue/6a4275c3/img/exemplo-ajax-3.png)
+
+###**Exemplo, a mesma request feito em $.qdAjax**
 
 ![enter image description here](https://cdn.rawgit.com/QuatroDigital/Quatro-Digital---jQuery-Ajax-Queue/8b9ff8f0/img/exemplo-ajax-2.png)
-
-![enter image description here](https://cdn.rawgit.com/QuatroDigital/Quatro-Digital---jQuery-Ajax-Queue/6a4275c3/img/exemplo-ajax-4.png)
