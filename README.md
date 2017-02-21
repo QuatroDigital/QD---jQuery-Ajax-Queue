@@ -12,10 +12,24 @@
 
 ###**Exemplo, request comum em $.ajax**
 
-
-![enter image description here](https://cdn.rawgit.com/QuatroDigital/Quatro-Digital---jQuery-Ajax-Queue/8b9ff8f0/img/exemplo-ajax-1.png)
+```javascript
+$.ajax({
+	url: "//api.ipify.org?format=jsonp", 
+	dataType: "jsonp"
+}).done(function(data) {
+	console.log(data);
+});
+```
 
 
 ###**Exemplo, a mesma request feito em $.qdAjax**
 
-![enter image description here](https://cdn.rawgit.com/QuatroDigital/Quatro-Digital---jQuery-Ajax-Queue/8b9ff8f0/img/exemplo-ajax-2.png)
+```javascript
+$.qdAjax({
+	url: "//api.ipify.org?format=jsonp", 
+	dataType: "jsonp",
+	clearQueueDelay: null // milisegundos ou null
+}).done(function(data) {
+	console.log(data);
+});
+```
